@@ -26,10 +26,11 @@
         {{ $slot }}
     </main>
 
-    {{-- Footer (optional) --}}
-    <footer class="text-center text-sm text-gray-500 py-10">
-        © {{ date('Y') }} DevChase. Built in faith. Learning in public.
-    </footer>
+   {{-- Footer --}}
+<footer class="text-center text-sm text-gray-500 py-10 border-t bg-white mt-16">
+    <p>© {{ now()->year }} DevChase. Building in faith. Learning in public.</p>
+</footer>
+
 
 </body>
 </html>

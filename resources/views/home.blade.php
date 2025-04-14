@@ -1,5 +1,14 @@
 <x-layout>
     <div class="max-w-6xl mx-auto px-4 py-12 space-y-12">
+{{-- Mission Section --}}
+<section class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-red-700 mb-4">
+        Building in Faith. Learning in Public.
+    </h2>
+    <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+        DevChase is where I share my journey as a developer and a disciple — creating tools, writing about the process, and growing in both code and calling.
+    </p>
+</section>
 
         {{-- Latest Posts --}}
         <section>
