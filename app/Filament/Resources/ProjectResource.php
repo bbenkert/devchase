@@ -46,6 +46,7 @@ class ProjectResource extends Resource
                     ->image()
                     ->directory('project-screenshots')
                     ->imageEditor()
+                    ->preserveFilenames()
                     ->label('Project Screenshot'),
     
                 TextInput::make('demo_link')
