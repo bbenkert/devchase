@@ -42,13 +42,13 @@ class ProjectResource extends Resource
                     ->label('Tech Stack')
                     ->placeholder('e.g., Laravel, Tailwind, Livewire'),
     
-                    FileUpload::make('screenshot')
-                    ->image()
+                FileUpload::make('screenshot')
                     ->directory('project-screenshots')
                     ->disk('public')
-                    ->imageEditor()
+                    ->image()
+                    ->imageEditor()                  
                     ->preserveFilenames()
-                    ->label('Project Screenshot'),
+                    ->nullable(),
     
                 TextInput::make('demo_link')
                     ->url()
