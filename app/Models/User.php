@@ -52,9 +52,9 @@ class User extends Authenticatable implements FilamentUser
      *
      * @return bool
      */
-    public function canAccessFilament(): bool
+    public function canAccessPanel(\Filament\Panel $panel): bool
     {
-        return str_ends_with($this->email, 'ben@devchase.com');
+        return true;
     }
 
     /**
