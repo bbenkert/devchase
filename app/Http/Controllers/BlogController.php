@@ -15,4 +15,12 @@ class BlogController extends Controller
 
         return view('blog.show', compact('post'));
     }
+    public function index()
+{
+    $posts = Post::where('published', true)
+        ->orderByDesc('published_at')
+        ->paginate(6); // paginate by 6 posts per page
+
+    return view('blog.index', compact('posts'));
+}
 }
