@@ -44,8 +44,11 @@ class ProjectResource extends Resource
     
                 FileUpload::make('screenshot')
                     ->image()
-                    ->directory('project-screenshots')
                     ->imageEditor()
+                    ->directory('project-screenshots')
+                    ->acceptedFileTypes(['image/png', 'image/jpg', 'image/jpeg', 'image/webp'])
+                    ->maxSize(5120) // 5MB max
+                    ->required()
                     ->preserveFilenames()
                     ->label('Project Screenshot'),
     
