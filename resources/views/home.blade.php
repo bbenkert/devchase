@@ -23,27 +23,37 @@
             </div>
         </section>
 
-        {{-- Featured Projects --}}
-        <section>
-            <h2 class="text-2xl font-semibold mb-6">Featured Projects</h2>
-            <div class="grid gap-6 md:grid-cols-3">
-                {{-- Example static content for now --}}
-                @foreach (range(1, 3) as $i)
-                    <div class="bg-white rounded-lg shadow p-5">
-                        <div class="h-32 bg-gray-200 rounded mb-4"></div> <!-- Placeholder for image -->
-                        <h3 class="text-lg font-bold mb-2">Project Title</h3>
-                        <div class="flex gap-2 flex-wrap mb-4">
-                            <span class="bg-gray-100 px-2 py-1 text-xs rounded">Tag</span>
-                            <span class="bg-gray-100 px-2 py-1 text-xs rounded">Tag</span>
-                        </div>
-                        <a href="#"
-                           class="inline-block bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-red-700 transition">
-                            View Project
-                        </a>
-                    </div>
-                @endforeach
+       {{-- Featured Projects --}}
+<section>
+    <h2 class="text-2xl font-semibold mb-6">Featured Projects</h2>
+    <div class="grid gap-6 md:grid-cols-3">
+        @forelse ($projects as $project)
+            <div class="bg-white rounded-lg shadow p-5">
+                @if ($project->screenshot)
+                    <img src="{{ asset('storage/' . $project->screenshot) }}" class="w-full h-32 object-cover rounded mb-4" />
+                @else
+                    <div class="h-32 bg-gray-200 rounded mb-4"></div>
+                @endif
+
+                <h3 class="text-lg font-bold mb-2">{{ $project->title }}</h3>
+
+                <div class="flex gap-2 flex-wrap mb-4">
+                    @foreach ($project->tech_stack ?? [] as $tag)
+                        <span class="bg-gray-100 px-2 py-1 text-xs rounded">{{ $tag }}</span>
+                    @endforeach
+                </div>
+
+                <a href="{{ $project->demo_link ?? '#' }}"
+                   class="inline-block bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-red-700 transition"
+                   target="_blank" rel="noopener noreferrer">
+                    View Project
+                </a>
             </div>
-        </section>
+        @empty
+            <p class="text-gray-500">No featured projects yet.</p>
+        @endforelse
+    </div>
+</section>
 
     </div>
 </x-layout>
