@@ -6,6 +6,8 @@ use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
 use Filament\Forms;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Forms\Form;
 use Filament\Forms\Components\{TextInput, Toggle, Textarea, RichEditor, FileUpload, DateTimePicker, TagsInput};
 use Filament\Resources\Resource;
@@ -25,46 +27,58 @@ class PostResource extends Resource
     public static function form(Forms\Form $form): Forms\Form
 {
     return $form
-        ->schema([
-            TextInput::make('title')
-    ->required()
-    ->live(onBlur: true)
-    ->afterStateUpdated(function ($state, callable $set) {
-        $set('slug', \Str::slug($state));
-    }),
-            
-            TextInput::make('slug')
-                ->disabled()
-                ->required(),
+    ->schema([
+        TextInput::make('title')
+            ->required()
+            ->live()
+            ->afterStateUpdated(function (string $state, Set $set, Get $get) {
+                if (! $get('slugManuallyEdited')) {
+                    $set('slug', \Str::slug($state));
+                }
+            }),
 
-            Textarea::make('excerpt')
-                ->rows(3)
-                ->placeholder('A short summary for previews...'),
+        TextInput::make('slug')
+            ->required()
+            ->helperText('URL slug (e.g., my-first-post)')
+            ->afterStateUpdated(function (string $state, Set $set) {
+                $set('slugManuallyEdited', true);
+            }),
 
-            RichEditor::make('content')
-                ->required()
-                ->columnSpanFull(),
+        Forms\Components\Hidden::make('slugManuallyEdited')
+            ->default(false)
+            ->dehydrated(false), // Don’t store this in the database
 
-            TextInput::make('category')
-                ->placeholder('e.g., Dev Notes, Faith, Projects'),
+        Textarea::make('excerpt')
+            ->rows(3)
+            ->placeholder('A short summary for previews...'),
 
-            TagsInput::make('tags'),
+        RichEditor::make('content')
+            ->required()
+            ->columnSpanFull(),
 
-            FileUpload::make('featured_image')
-                ->directory('blog-images')
-                ->image()
-                ->imageEditor()
-                ->nullable(),
+        TextInput::make('category')
+            ->placeholder('e.g., Dev Notes, Faith, Projects'),
 
-            Toggle::make('published')
-                ->label('Publish this post?'),
+        TagsInput::make('tags'),
 
-            DateTimePicker::make('published_at')
-                ->label('Publish Date')
-                ->seconds(false)
-                ->default(now()),
-        ])
-        ->columns(2);
+        FileUpload::make('featured_image')
+            ->directory('blog-images')
+            ->image()
+            ->imageEditor()
+            ->imageResizeMode('cover')
+            ->imageCropAspectRatio('16:9')
+            ->preserveFilenames()
+            ->nullable(),
+
+        Toggle::make('published')
+            ->label('Publish this post?'),
+
+        DateTimePicker::make('published_at')
+            ->label('Publish Date')
+            ->seconds(false)
+            ->default(now()),
+    ])
+    ->columns(2);
 }
 
 
