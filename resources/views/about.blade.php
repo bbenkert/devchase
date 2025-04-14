@@ -47,4 +47,15 @@
         </p>
 
     </div>
+    <hr class="my-10 border-gray-200" />
+
+<div class="flex items-center justify-center space-x-6 mt-10">
+    <img src="{{ asset('storage/profile.jpg') }}" alt="Ben's Photo"
+         class="w-20 h-20 rounded-full object-cover border-2 border-blue-900" />
+    <div>
+        <p class="text-gray-800 font-semibold text-lg text-center">Ben Benkert</p>
+        <p class="text-gray-500 text-sm text-center">Builder. Pastor. Creator. Disciple.</p>
+    </div>
+</div>
+
 </x-layout>
