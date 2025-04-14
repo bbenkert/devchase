@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevChase</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ config('app.name', 'DevChase') }}</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-50 text-gray-900">
-    <header class="bg-white shadow p-4">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <a href="/" class="text-xl font-bold">DevChase</a>
-            <nav class="space-x-4">
-                <a href="/" class="text-gray-700 hover:text-blue-600">Home</a>
-                <a href="/blog" class="text-gray-700 hover:text-blue-600">Blog</a>
-                <a href="/projects" class="text-gray-700 hover:text-blue-600">Projects</a>
-                <a href="/about" class="text-gray-700 hover:text-blue-600">About</a>
+<body class="bg-gray-50 text-gray-900 leading-relaxed antialiased">
+
+    {{-- Header --}}
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-xl font-bold text-red-700">DevChase</a>
+            <nav class="flex space-x-4 text-sm font-medium">
+                <a href="/" class="hover:text-red-600 {{ request()->is('/') ? 'text-red-700' : 'text-gray-700' }}">Home</a>
+                <a href="/blog" class="hover:text-red-600 {{ request()->is('blog*') ? 'text-red-700' : 'text-gray-700' }}">Blog</a>
+                <a href="/projects" class="hover:text-red-600 {{ request()->is('projects*') ? 'text-red-700' : 'text-gray-700' }}">Projects</a>
+                <a href="/about" class="hover:text-red-600 {{ request()->is('about') ? 'text-red-700' : 'text-gray-700' }}">About</a>
             </nav>
         </div>
     </header>
 
-    <main class="py-10">
+    {{-- Main Content --}}
+    <main class="py-12">
         {{ $slot }}
     </main>
+
+    {{-- Footer (optional) --}}
+    <footer class="text-center text-sm text-gray-500 py-10">
+        © {{ date('Y') }} DevChase. Built in faith. Learning in public.
+    </footer>
+
 </body>
 </html>
