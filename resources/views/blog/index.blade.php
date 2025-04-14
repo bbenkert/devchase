@@ -1,7 +1,35 @@
 <x-layout>
     <div class="max-w-6xl mx-auto px-4 py-12">
         <h1 class="text-3xl font-bold mb-6">Blog</h1>
+{{-- Search & Filter Bar --}}
+<form method="GET" class="mb-10 flex flex-wrap gap-4 items-center">
+    <input type="text" name="search" value="{{ request('search') }}"
+        placeholder="Search posts..."
+        class="border border-gray-300 rounded px-3 py-2 w-full md:w-auto flex-1" />
 
+    <select name="category" class="border border-gray-300 rounded px-3 py-2">
+        <option value="">All Categories</option>
+        @foreach ($allCategories as $category)
+            <option value="{{ $category }}" @selected(request('category') === $category)>
+                {{ $category }}
+            </option>
+        @endforeach
+    </select>
+
+    <select name="tag" class="border border-gray-300 rounded px-3 py-2">
+        <option value="">All Tags</option>
+        @foreach ($allTags as $tag)
+            <option value="{{ $tag }}" @selected(request('tag') === $tag)>
+                {{ $tag }}
+            </option>
+        @endforeach
+    </select>
+
+    <button type="submit"
+        class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">
+        Filter
+    </button>
+</form>
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             @forelse ($posts as $post)
                 <a href="{{ route('blog.show', $post->slug) }}" class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
