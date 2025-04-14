@@ -48,8 +48,8 @@ class ProjectResource extends Resource
                     ->directory('project-screenshots')
                     ->acceptedFileTypes(['image/png', 'image/jpg', 'image/jpeg', 'image/webp'])
                     ->maxSize(5120) // 5MB max
-                    ->required()
                     ->preserveFilenames()
+                    ->enableOpen()
                     ->label('Project Screenshot'),
     
                 TextInput::make('demo_link')
