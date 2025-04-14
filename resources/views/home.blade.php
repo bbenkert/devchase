@@ -1,14 +1,16 @@
 <x-layout>
     <div class="max-w-6xl mx-auto px-4 py-12 space-y-12">
 {{-- Mission Section --}}
-<section class="text-center mb-12">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-red-700 mb-4">
+<section class="text-center mb-12 px-4 py-10 bg-gray-100 w-full">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-blue-700 mb-4">
         Building in Faith. Learning in Public.
     </h2>
-    <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+    <p class="text-gray-700 text-lg max-w-2xl mx-auto">
         DevChase is where I share my journey as a developer and a disciple — creating tools, writing about the process, and growing in both code and calling.
     </p>
 </section>
+</section>
+
 
         {{-- Latest Posts --}}
         <section>
@@ -23,7 +25,7 @@
                         </div>
                         <div class="mt-4">
                             <a href="{{ route('blog.show', $post->slug) }}"
-                               class="inline-block bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-red-700 transition">
+                               class="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-blue-700 transition">
                                 Read More
                             </a>
                         </div>
@@ -53,7 +55,7 @@
                 </div>
 
                 <a href="{{ $project->demo_link ?? '#' }}"
-                   class="inline-block bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-red-700 transition"
+                   class="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-blue-700 transition"
                    target="_blank" rel="noopener noreferrer">
                     View Project
                 </a>
