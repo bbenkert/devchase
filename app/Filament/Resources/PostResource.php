@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Filament\Resources;
+use Filament\Forms\Components\MarkdownEditor;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
@@ -52,9 +53,22 @@ class PostResource extends Resource
             ->rows(3)
             ->placeholder('A short summary for previews...'),
 
-        RichEditor::make('content')
+            MarkdownEditor::make('content')
             ->required()
-            ->columnSpanFull(),
+            ->columnSpanFull()
+            ->toolbarButtons([
+                'bold',
+                'italic',
+                'strike',
+                'link',
+                'heading',
+                'codeBlock',
+                'blockquote',
+                'bulletList',
+                'orderedList',
+                'checkboxList',
+            ]),
+        
 
         TextInput::make('category')
             ->placeholder('e.g., Dev Notes, Faith, Projects'),
