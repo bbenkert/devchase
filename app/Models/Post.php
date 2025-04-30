@@ -1,7 +1,11 @@
 <?php
 
 namespace App\Models;
-use League\CommonMark\CommonMarkConverter;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\Table\TableExtension;
+use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
+use League\CommonMark\MarkdownConverter;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -9,12 +13,14 @@ class Post extends Model
 
     public function renderedContent(): string
     {
-        $converter = new CommonMarkConverter([
-            'html_input' => 'strip',
-            'allow_unsafe_links' => false,
-        ]);
+        $environment = new Environment();
+        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new GithubFlavoredMarkdownExtension());
+        $environment->addExtension(new TableExtension());
     
-        return $converter->convertToHtml($this->content);
+        $converter = new MarkdownConverter($environment);
+    
+        return $converter->convert($this->content)->getContent();
     }
 
     protected $fillable = [
