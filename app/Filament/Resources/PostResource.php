@@ -53,7 +53,7 @@ class PostResource extends Resource
                     ->rows(3)
                     ->placeholder('A short summary for previews...'),
 
-                RRichEditor::make('content')
+                RichEditor::make('content')
     ->required()
     ->columnSpanFull()
     ->toolbarButtons([
