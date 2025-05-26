@@ -53,9 +53,9 @@ class PostResource extends Resource
                     ->rows(3)
                     ->placeholder('A short summary for previews...'),
 
-                RichEditor::make('content')
-                    ->required()
-                    ->columnSpanFull()
+                RRichEditor::make('content')
+    ->required()
+    ->columnSpanFull()
     ->toolbarButtons([
         'bold',
         'italic',
@@ -67,10 +67,8 @@ class PostResource extends Resource
         'codeBlock',
         'undo', 'redo',
     ])
-    ->disableToolbarButtons(['textColor', 'highlight', 'underline'])
-    // Optional: strip unwanted styles from saved content
-    ->saveContentUsing(function ($content) {
-        return preg_replace('/ style="[^"]*"/', '', $content); // remove inline styles
+    ->mutateDehydratedStateUsing(function ($state) {
+        return preg_replace('/ style="[^"]*"/', '', $state); // Remove inline styles
     }),
                 TextInput::make('category')
                     ->placeholder('e.g., Dev Notes, Faith, Projects'),
