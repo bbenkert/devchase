@@ -53,7 +53,7 @@ class PostResource extends Resource
             ->rows(3)
             ->placeholder('A short summary for previews...'),
 
-            MarkdownEditor::make('content')
+            RichEditor::make('content')
             ->required()
             ->columnSpanFull()
             ->toolbarButtons([
@@ -61,12 +61,11 @@ class PostResource extends Resource
                 'italic',
                 'strike',
                 'link',
-                'heading',
-                'codeBlock',
+                'h2', 'h3',
+                'bulletList', 'orderedList',
                 'blockquote',
-                'bulletList',
-                'orderedList',
-                'checkboxList',
+                'codeBlock',
+                'undo', 'redo',
             ]),
         
 
