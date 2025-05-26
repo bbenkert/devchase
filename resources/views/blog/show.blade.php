@@ -3,7 +3,7 @@
         <h1 class="text-4xl font-bold mb-4">{{ $post->title }}</h1>
 
         @if ($post->featured_image)
-            <img src="{{ asset('storage/' . $post->featured_image) }}" class="w-full h-64 object-cover mb-6 rounded shadow" />
+            <img src="{{ asset('storage/' . $post->featured_image) }}" class="w-full h-75 object-cover mb-6 rounded shadow" />
         @endif
 
         <div class="prose prose-lg max-w-none prose-img:rounded-lg prose-pre:bg-gray-100 prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5">

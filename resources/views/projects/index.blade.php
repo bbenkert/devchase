@@ -6,7 +6,7 @@
             @forelse ($projects as $project)
                 <div class="bg-white rounded-lg shadow p-5 flex flex-col">
                     @if ($project->screenshot)
-                        <img src="{{ asset('storage/' . $project->screenshot) }}" class="w-full h-32 object-cover rounded mb-4" />
+                        <img src="{{ asset('storage/' . $project->screenshot) }}" class="w-full h-50 object-cover rounded mb-4" />
                     @endif
 
                     <h3 class="text-lg font-bold mb-2">{{ $project->title }}</h3>
