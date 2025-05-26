@@ -58,10 +58,10 @@ class PostResource extends Resource
                 TiptapEditor::make('content')
                     ->required()
                     ->columnSpanFull()
-                    ->toolbar([
-                        'heading', 'bold', 'italic', 'strike', 'link', 'blockquote', 'codeBlock',
-                        'bulletList', 'orderedList', 'table', 'image', 'undo', 'redo'
-                    ])
+                    ->tools([
+        'heading', 'bold', 'italic', 'strike', 'link', 'blockquote', 'codeBlock',
+        'bulletList', 'orderedList', 'table', 'image', 'undo', 'redo'
+    ])
                     ->maxContentWidth('full')
                     ->placeholder('Write your post content here...')
                     ->extraInputAttributes(['style' => 'min-height: 300px;']),
