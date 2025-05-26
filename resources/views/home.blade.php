@@ -9,7 +9,6 @@
         DevChase is where I share my journey as a developer and a disciple — creating tools, writing about the process, and growing in both code and calling.
     </p>
 </section>
-</section>
 
 
         {{-- Latest Posts --}}
@@ -41,7 +40,7 @@
         @forelse ($projects as $project)
             <div class="bg-white rounded-lg shadow p-5">
                 @if ($project->screenshot)
-                    <img src="{{ asset('storage/' . $project->screenshot) }}" class="w-full h-32 object-cover rounded mb-4" />
+                    <img src="{{ asset('storage/' . $project->screenshot) }}" class="w-full h-50 object-cover rounded mb-4" />
                 @else
                     <div class="h-32 bg-gray-200 rounded mb-4"></div>
                 @endif
