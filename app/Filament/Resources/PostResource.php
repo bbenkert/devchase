@@ -59,12 +59,14 @@ class PostResource extends Resource
                     ->required()
                     ->columnSpanFull()
                     ->tools([
-        'heading', 'bold', 'italic', 'strike', 'link', 'blockquote', 'codeBlock',
-        'bulletList', 'orderedList', 'table', 'image', 'undo', 'redo'
-    ])
+                        'heading', 'bold', 'italic', 'strike', 'link', 'blockquote', 'codeBlock',
+                        'bulletList', 'orderedList', 'table', 'image', 'undo', 'redo'
+                    ])
                     ->maxContentWidth('full')
                     ->placeholder('Write your post content here...')
-                    ->extraInputAttributes(['style' => 'min-height: 300px;']),
+                    ->extraInputAttributes(['style' => 'min-height: 300px;'])
+                    ->disk('public')
+                    ->directory('uploads'),
                 TextInput::make('category')
                     ->placeholder('e.g., Dev Notes, Faith, Projects'),
 
