@@ -19,6 +19,7 @@ use Filament\Tables\Columns\{
 };
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use FilamentTiptapEditor\TiptapEditor;
 
 class PostResource extends Resource
 {
@@ -53,23 +54,16 @@ class PostResource extends Resource
                     ->rows(3)
                     ->placeholder('A short summary for previews...'),
 
-                RichEditor::make('content')
-    ->required()
-    ->columnSpanFull()
-    ->toolbarButtons([
-        'bold',
-        'italic',
-        'strike',
-        'link',
-        'h2', 'h3',
-        'bulletList', 'orderedList',
-        'blockquote',
-        'codeBlock',
-        'undo', 'redo',
-    ])
-    ->mutateDehydratedStateUsing(function ($state) {
-        return preg_replace('/ style="[^"]*"/', '', $state); // Remove inline styles
-    }),
+                TiptapEditor::make('content')
+                    ->required()
+                    ->columnSpanFull()
+                    ->toolbar([
+                        'heading', 'bold', 'italic', 'strike', 'link', 'blockquote', 'codeBlock',
+                        'bulletList', 'orderedList', 'table', 'image', 'undo', 'redo'
+                    ])
+                    ->maxContentWidth('full')
+                    ->placeholder('Write your post content here...')
+                    ->extraInputAttributes(['style' => 'min-height: 300px;']),
                 TextInput::make('category')
                     ->placeholder('e.g., Dev Notes, Faith, Projects'),
 
