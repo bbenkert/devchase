@@ -8,9 +8,9 @@
                  class="w-full h-auto object-cover rounded shadow mb-6" />
         @endif
 
-        <article class="prose prose-lg prose-slate max-w-none">
-            {!! $post->content !!}
-        </article>
+        <div class="prose lg:prose-lg max-w-none">
+    {!! $post->content !!}
+</div>
 
         <p class="text-sm text-gray-500 mt-8">
             Published {{ $post->published_at->format('F j, Y') }}
