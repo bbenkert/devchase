@@ -19,7 +19,7 @@ use Filament\Tables\Columns\{
 };
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Awcodes\FilamentTiptapEditor\TiptapEditor;
+use FilamentTiptapEditor\TiptapEditor;
 
 
 class PostResource extends Resource
