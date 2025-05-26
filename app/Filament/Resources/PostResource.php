@@ -56,19 +56,22 @@ class PostResource extends Resource
                 RichEditor::make('content')
                     ->required()
                     ->columnSpanFull()
-                    ->toolbarButtons([
-                        'bold',
-                        'italic',
-                        'strike',
-                        'link',
-                        'h2', 'h3',
-                        'bulletList', 'orderedList',
-                        'blockquote',
-                        'codeBlock',
-                        'undo', 'redo',
-                    ])
-                    ->disableToolbarButtons(['textColor', 'highlight', 'underline']), // Optional: disable inline styling tools
-
+    ->toolbarButtons([
+        'bold',
+        'italic',
+        'strike',
+        'link',
+        'h2', 'h3',
+        'bulletList', 'orderedList',
+        'blockquote',
+        'codeBlock',
+        'undo', 'redo',
+    ])
+    ->disableToolbarButtons(['textColor', 'highlight', 'underline'])
+    // Optional: strip unwanted styles from saved content
+    ->saveContentUsing(function ($content) {
+        return preg_replace('/ style="[^"]*"/', '', $content); // remove inline styles
+    }),
                 TextInput::make('category')
                     ->placeholder('e.g., Dev Notes, Faith, Projects'),
 
