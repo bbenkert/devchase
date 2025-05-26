@@ -7,7 +7,7 @@
                  alt="{{ $post->title }} featured image"
                  class="w-full h-auto object-cover rounded shadow mb-6" />
         @endif
-<section class="prose lg:prose-lg custom-prose max-w-none">
+<section>
     {!! $post->content !!}
 </section>
 
