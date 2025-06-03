@@ -251,7 +251,7 @@
                             class="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 mx-auto md:mx-0 shadow-xl flex items-center justify-center"
                         >
                             <img
-                                class="h-full w-full object-cover md:h-full md:w-72 lg:w-80 xl:w-96"
+                                class="h-full w-full rounded-full object-cover"
                                 src="{{ asset('img/profile.jpg') }}"
                                 alt="Photo of Ben"
                             />
