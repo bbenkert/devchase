@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
-use Awcodes\FilamentTiptapEditor\TiptapEditor;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
@@ -56,18 +56,18 @@ class PostResource extends Resource
                     ->rows(3)
                     ->placeholder('A short summary for previews...'),
 
-                TiptapEditor::make('content')
+                    RichEditor::make('content')
                     ->required()
                     ->columnSpanFull()
-                    ->tools([
-                        'heading', 'bold', 'italic', 'strike', 'link', 'blockquote', 'codeBlock',
-                        'bulletList', 'orderedList', 'table', 'image', 'undo', 'redo',
+                    ->toolbarButtons([
+                        'h1', 'h2', 'h3', 'h4', 'h5', 'h6', // All heading levels
+                        'bold', 'italic', 'underline', 'strike', 'superscript', 'subscript',
+                        'link', 'blockquote', 'codeBlock', 'alignLeft', 'alignCenter', 'alignRight',
+                        'bulletList', 'orderedList', 'table', 'image', 'video', 'horizontalRule',
+                        'undo', 'redo'
                     ])
-                    ->maxContentWidth('full')
                     ->placeholder('Write your post content here...')
-                    ->extraInputAttributes(['style' => 'min-height: 300px;'])
-                    ->disk('public')
-                    ->directory('uploads'),
+                    ->extraInputAttributes(['style' => 'min-height: 300px;']),
                 TextInput::make('category')
                     ->placeholder('e.g., Dev Notes, Faith, Projects'),
 
