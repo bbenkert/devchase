@@ -6,7 +6,10 @@
             @forelse ($projects as $project)
                 <div class="bg-white rounded-lg shadow p-5 flex flex-col">
                     @if ($project->screenshot)
-                        <img src="{{ asset('storage/' . $project->screenshot) }}" class="w-full h-50 object-cover rounded mb-4" />
+                        <img
+                            src="{{ asset('storage/' . $project->screenshot) }}"
+                            class="w-full h-50 object-cover rounded mb-4"
+                        />
                     @endif
 
                     <h3 class="text-lg font-bold mb-2">{{ $project->title }}</h3>
@@ -19,10 +22,23 @@
 
                     <div class="mt-auto space-x-2">
                         @if ($project->demo_link)
-                            <a href="{{ $project->demo_link }}" target="_blank" class="text-sm text-blue-600 hover:underline">Demo</a>
+                            <a
+                                href="{{ $project->demo_link }}"
+                                target="_blank"
+                                class="text-sm text-blue-600 hover:underline"
+                            >
+                                Demo
+                            </a>
                         @endif
+
                         @if ($project->github_link)
-                            <a href="{{ $project->github_link }}" target="_blank" class="text-sm text-gray-700 hover:underline">GitHub</a>
+                            <a
+                                href="{{ $project->github_link }}"
+                                target="_blank"
+                                class="text-sm text-gray-700 hover:underline"
+                            >
+                                GitHub
+                            </a>
                         @endif
                     </div>
                 </div>

@@ -3,9 +3,11 @@
         <h1 class="text-4xl font-bold mb-6">{{ $post->title }}</h1>
 
         @if ($post->featured_image)
-            <img src="{{ asset('storage/' . $post->featured_image) }}" 
-                 alt="{{ $post->title }} featured image"
-                 class="w-full h-auto object-cover rounded shadow mb-6" />
+            <img
+                src="{{ asset('storage/' . $post->featured_image) }}"
+                alt="{{ $post->title }} featured image"
+                class="w-full h-auto object-cover rounded shadow mb-6"
+            />
         @endif
 
         <article class="prose lg:prose-lg max-w-none prose-slate">

@@ -8,6 +8,7 @@ This site is both a blog and a learning space, documenting my journey as I explo
 ## ✨ Purpose
 
 This project is meant to:
+
 - 🧠 Serve as my personal blog and digital notebook
 - 🧱 Help me grow in full stack Laravel development
 - 📖 Share insights, struggles, and victories from the journey
@@ -17,11 +18,11 @@ This project is meant to:
 
 ## 🔧 Stack
 
-- **Laravel** with Sail (Docker) for local development  
-- **TALL stack** (Tailwind, Alpine.js, Laravel, Livewire) for modern UI  
-- **Filament** for content management  
-- **Hosted on** [DigitalOcean](https://digitalocean.com)  
-- **Deployed via** [Laravel Forge](https://forge.laravel.com)  
+- **Laravel** with Sail (Docker) for local development
+- **TALL stack** (Tailwind, Alpine.js, Laravel, Livewire) for modern UI
+- **Filament** for content management
+- **Hosted on** [DigitalOcean](https://digitalocean.com)
+- **Deployed via** [Laravel Forge](https://forge.laravel.com)
 
 ---
 
@@ -48,4 +49,4 @@ This project is meant to:
 I’m a full-time pastor, part-time developer, and full-time learner.  
 DevChase is my space to reflect, build in public, and hopefully inspire others chasing after a calling in code or ministry.
 
-> *"Building in faith. Learning in public."*
+> _"Building in faith. Learning in public."_

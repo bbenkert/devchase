@@ -1,0 +1,14 @@
+{
+    "plugins": ["prettier-plugin-blade"],
+    "pluginSearchDirs": false,
+    "overrides": [
+        {
+            "files": "*.blade.php",
+            "options": {
+                "parser": "blade",
+                "printWidth": 100,
+                "singleQuote": true
+            }
+        }
+    ]
+}

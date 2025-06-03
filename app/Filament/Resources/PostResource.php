@@ -4,27 +4,28 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
+use Awcodes\FilamentTiptapEditor\TiptapEditor;
 use Filament\Forms;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
-use Filament\Forms\Form;
-use Filament\Forms\Components\{
-    TextInput, Toggle, Textarea, RichEditor, FileUpload, DateTimePicker, TagsInput, Hidden
-};
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Table;
-use Filament\Tables\Columns\{
-    TextColumn, ImageColumn, TagsColumn, ToggleColumn
-};
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use FilamentTiptapEditor\TiptapEditor;
-
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TagsColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 
 class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Forms\Form $form): Forms\Form
@@ -60,7 +61,7 @@ class PostResource extends Resource
                     ->columnSpanFull()
                     ->tools([
                         'heading', 'bold', 'italic', 'strike', 'link', 'blockquote', 'codeBlock',
-                        'bulletList', 'orderedList', 'table', 'image', 'undo', 'redo'
+                        'bulletList', 'orderedList', 'table', 'image', 'undo', 'redo',
                     ])
                     ->maxContentWidth('full')
                     ->placeholder('Write your post content here...')

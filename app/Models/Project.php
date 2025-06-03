@@ -10,7 +10,7 @@ class Project extends Model
         'tech_stack' => 'array',
         'is_featured' => 'boolean',
     ];
-    
+
     protected $fillable = [
         'title',
         'description',
@@ -20,5 +20,4 @@ class Project extends Model
         'github_link',
         'is_featured',
     ];
-    
 }
