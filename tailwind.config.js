@@ -8,6 +8,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                sans: ['"Instrument Sans"', ...defaultTheme.fontFamily.sans],
+            },
             typography: ({ theme }) => ({
                 custom: {
                     css: {
