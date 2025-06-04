@@ -2,7 +2,9 @@
     <div class="bg-slate-50 py-12 md:py-16">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             {{-- Profile Intro Section --}}
-           <section class="bg-gradient-to-br from-slate-50 via-white to-sky-100 border border-slate-200 rounded-xl shadow-md">
+            <section
+                class="bg-gradient-to-br from-slate-50 via-white to-sky-100 border border-slate-200 rounded-xl shadow-md"
+            >
                 <div class="flex flex-col md:flex-row items-center md:items-stretch">
                     {{-- Profile Image --}}
                     <div class="w-full md:w-72 lg:w-80 xl:w-96 h-72 md:h-auto bg-slate-100">
@@ -15,21 +17,18 @@
 
                     {{-- Bio Text --}}
                     <div class="p-8 lg:p-12 flex flex-col justify-center text-center md:text-left">
-                        
                         <h1
                             class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight"
                         >
                             Ben Benkert
                         </h1>
-                       
+
                         <p class="mt-2 text-slate-600 text-lg sm:text-xl font-medium">
                             Builder. Pastor. Creator. Disciple.
                         </p>
-                         <p
-                            class="uppercase tracking-wider text-sm text-sky-600 font-semibold mb-1"
-                        >
+                        <p class="uppercase tracking-wider text-sm text-sky-600 font-semibold mb-1">
                             Full Stack Developer
-                    </p>
+                        </p>
                         <p
                             class="mt-6 text-slate-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto md:mx-0"
                         >
@@ -90,10 +89,11 @@
             </section>
 
             {{-- Tech Stack Section --}}
-           <section class="bg-gradient-to-br from-slate-50 via-white to-sky-100 border border-slate-200 rounded-xl shadow-md">
-    <div class="px-8 lg:px-12 py-12">
-                        Tech I Work With
-                    </h2>
+            <section
+                class="bg-gradient-to-br from-slate-50 via-white to-sky-100 border border-slate-200 rounded-xl shadow-md"
+            >
+                <div class="px-8 lg:px-12 py-12">
+                    <h2 class="text-lg font-semibold text-slate-800 mb-4">Tech I Work With</h2>
 
                     <div class="grid gap-10 md:grid-cols-3">
                         {{-- Frameworks & Libraries --}}
@@ -116,7 +116,9 @@
                                         'T3 Stack'
                                     ]
                                     as $framework)
-                                    <span class="bg-sky-100 text-sky-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-sky-200 transition">
+                                    <span
+                                        class="bg-sky-100 text-sky-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-sky-200 transition"
+                                    >
                                         {{ $framework }}
                                     </span>
                                 @endforeach
@@ -132,7 +134,9 @@
                             </h3>
                             <div class="flex flex-wrap gap-2">
                                 @foreach (['HTML', 'CSS', 'JavaScript', 'TypeScript', 'PHP', 'Markdown', 'JSON', 'SQL'] as $language)
-                                    <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-amber-200 transition">
+                                    <span
+                                        class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-amber-200 transition"
+                                    >
                                         {{ $language }}
                                     </span>
                                 @endforeach
@@ -165,7 +169,9 @@
                                         'Mailgun'
                                     ]
                                     as $tool)
-                                     <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-indigo-200 transition">
+                                    <span
+                                        class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-indigo-200 transition"
+                                    >
                                         {{ $tool }}
                                     </span>
                                 @endforeach

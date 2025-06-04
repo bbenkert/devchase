@@ -9,8 +9,9 @@
                 <span class="block sm:inline">Where Faith Meets Code.</span>
             </h1>
             <p class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-sky-100">
-                Documenting my growth as a developer and disciple. Building meaningful tools and
-                sharing the process.
+                Documenting my growth as a developer and disciple.
+                <br />
+                Building meaningful tools and sharing the process.
             </p>
             <div class="mt-10">
                 <a
@@ -243,15 +244,15 @@
             </section>
 
             {{-- The Navigator (About Me Snippet) --}}
-            <section class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+            <section class="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-slate-200">
                 <div class="md:flex md:items-center md:space-x-10">
+                    {{-- Profile Image --}}
                     <div class="md:w-1/3 text-center md:text-left mb-8 md:mb-0">
-                        {{-- Placeholder for an image --}}
                         <div
-                            class="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 mx-auto md:mx-0 shadow-xl flex items-center justify-center"
+                            class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mx-auto md:mx-0 shadow-lg ring-4 ring-sky-100"
                         >
                             <img
-                                class="h-full w-full rounded-full object-cover"
+                                class="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
                                 src="{{ asset('img/profile.jpg') }}"
                                 alt="Photo of Ben"
                             />

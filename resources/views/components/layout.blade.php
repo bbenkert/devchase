@@ -46,8 +46,24 @@
         </main>
 
         {{-- Footer --}}
-        <footer class="text-center text-sm text-gray-600 py-10 border-t bg-gray-200 mt-16">
-            <p>© {{ now()->year }} DevChase. Built in faith. Learning in public.</p>
+        <footer
+            class="relative mt-16 text-center text-sm text-slate-700 border-t bg-gradient-to-r from-sky-50 via-white to-sky-100 py-12 shadow-inner"
+        >
+            <div class="max-w-4xl mx-auto px-4 space-y-4">
+                <p class="text-base font-medium text-slate-800">
+                    © {{ now()->year }}
+                    <span class="font-bold text-sky-600">DevChase</span>
+                </p>
+                <p class="text-slate-600 italic">Building in faith. Learning in public.</p>
+                <p class="text-xs text-slate-500">
+                    Crafted with Laravel, Tailwind, and a whole lot of prayer.
+                </p>
+            </div>
+
+            {{-- Optional SVG flare --}}
+            <div
+                class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-sky-400 via-sky-600 to-sky-400 opacity-30"
+            ></div>
         </footer>
     </body>
 </html>
