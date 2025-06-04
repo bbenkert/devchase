@@ -7,7 +7,6 @@ module.exports = {
         "./resources/**/*.vue",
         "./resources/views/*.blade.php",
         "/resources/views/**/*.blade.php",
-        "./resources/views/blog/*.blade.php",
     ],
     theme: {
         extend: {
