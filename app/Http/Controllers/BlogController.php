@@ -23,7 +23,7 @@ class BlogController extends Controller
 
         // Filter by search
         if ($search = $request->input('search')) {
-            $query->where(function ($q) use ($search) {
+            $query->where(function ($q) use ($search): void {
                 $q->where('title', 'like', "%{$search}%")
                     ->orWhere('excerpt', 'like', "%{$search}%")
                     ->orWhere('content', 'like', "%{$search}%");

@@ -4,11 +4,11 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -35,7 +35,7 @@ class PostResource extends Resource
                 TextInput::make('title')
                     ->required()
                     ->live()
-                    ->afterStateUpdated(function (string $state, Set $set, Get $get) {
+                    ->afterStateUpdated(function (string $state, Set $set, Get $get): void {
                         if (! $get('slugManuallyEdited')) {
                             $set('slug', \Str::slug($state));
                         }
@@ -44,7 +44,7 @@ class PostResource extends Resource
                 TextInput::make('slug')
                     ->required()
                     ->helperText('URL slug (e.g., my-first-post)')
-                    ->afterStateUpdated(function (string $state, Set $set) {
+                    ->afterStateUpdated(function (string $state, Set $set): void {
                         $set('slugManuallyEdited', true);
                     }),
 
@@ -56,7 +56,7 @@ class PostResource extends Resource
                     ->rows(3)
                     ->placeholder('A short summary for previews...'),
 
-                    RichEditor::make('content')
+                RichEditor::make('content')
                     ->required()
                     ->columnSpanFull()
                     ->toolbarButtons([
@@ -64,7 +64,7 @@ class PostResource extends Resource
                         'bold', 'italic', 'underline', 'strike', 'superscript', 'subscript',
                         'link', 'blockquote', 'codeBlock', 'alignLeft', 'alignCenter', 'alignRight',
                         'bulletList', 'orderedList', 'table', 'image', 'video', 'horizontalRule',
-                        'undo', 'redo'
+                        'undo', 'redo',
                     ])
                     ->placeholder('Write your post content here...')
                     ->extraInputAttributes(['style' => 'min-height: 300px;']),
