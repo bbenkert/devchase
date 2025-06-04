@@ -15,19 +15,21 @@
 
                     {{-- Bio Text --}}
                     <div class="p-8 lg:p-12 flex flex-col justify-center text-center md:text-left">
-                        <div
-                            class="uppercase tracking-wider text-sm text-sky-600 font-semibold mb-1"
-                        >
-                            Full Stack Developer
-                        </div>
+                        
                         <h1
                             class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight"
                         >
                             Ben Benkert
                         </h1>
+                       
                         <p class="mt-2 text-slate-600 text-lg sm:text-xl font-medium">
                             Builder. Pastor. Creator. Disciple.
                         </p>
+                         <p
+                            class="uppercase tracking-wider text-sm text-sky-600 font-semibold mb-1"
+                        >
+                            Full Stack Developer
+                    </p>
                         <p
                             class="mt-6 text-slate-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto md:mx-0"
                         >
