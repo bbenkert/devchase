@@ -13,7 +13,9 @@ cmds = [
     "php artisan view:cache",
     "php artisan storage:link",
     "chmod -R 775 storage bootstrap/cache",
-    "chown -R www-data:www-data storage bootstrap/cache"
+    "chown -R www-data:www-data storage bootstrap/cache",
+    "chmod -R 775 storage/app/public",
+    "chown -R www-data:www-data storage/app/public"
 
 ]
 
