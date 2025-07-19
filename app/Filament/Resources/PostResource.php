@@ -74,7 +74,7 @@ class PostResource extends Resource
                 TagsInput::make('tags'),
 
                 FileUpload::make('featured_image')
-                    ->directory('blog-images')
+                    ->directory('data/coolify/applications/skwowkg84gckggcsc8g84cgw/blog-images')
                     ->image()
                     ->imageEditor()
                     ->imageResizeMode('cover')
