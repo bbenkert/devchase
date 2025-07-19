@@ -25,9 +25,14 @@ class OptimizeUploadedImage implements ShouldQueue
      */
     public function handle($event): void
     {
-        if (isset($event->file) && $event->file instanceof TemporaryUploadedFile) {
-            $this->optimizeImage($event->file);
+        // Add more defensive checks
+        if (!isset($event->file) || 
+            !($event->file instanceof TemporaryUploadedFile) ||
+            !$event->file->exists()) {
+            return;
         }
+
+        $this->optimizeImage($event->file);
     }
 
     /**
@@ -35,19 +40,28 @@ class OptimizeUploadedImage implements ShouldQueue
      */
     protected function optimizeImage(TemporaryUploadedFile $file): void
     {
-        if (!$this->isImageFile($file)) {
+        // Additional safety checks
+        if (!$file->exists() || !$this->isImageFile($file)) {
             return;
         }
 
         try {
             $filePath = $file->getRealPath();
             
+            // Ensure file path exists and is readable
+            if (!$filePath || !file_exists($filePath) || !is_readable($filePath)) {
+                return;
+            }
+            
             $optimizerChain = app(OptimizerChain::class);
             $optimizerChain->optimize($filePath);
             
         } catch (\Exception $e) {
             // Log the error but don't fail the upload
-            logger()->warning('Image optimization failed: ' . $e->getMessage());
+            logger()->warning('Image optimization failed: ' . $e->getMessage(), [
+                'file_path' => $filePath ?? 'unknown',
+                'file_name' => $file->getClientOriginalName() ?? 'unknown'
+            ]);
         }
     }
 
@@ -56,13 +70,19 @@ class OptimizeUploadedImage implements ShouldQueue
      */
     protected function isImageFile(TemporaryUploadedFile $file): bool
     {
-        $mimeType = $file->getMimeType();
-        
-        return in_array($mimeType, [
-            'image/jpeg',
-            'image/png',
-            'image/webp',
-            'image/gif',
-        ]);
+        try {
+            $mimeType = $file->getMimeType();
+            
+            return $mimeType && in_array($mimeType, [
+                'image/jpeg',
+                'image/png',
+                'image/webp',
+                'image/gif',
+            ]);
+        } catch (\Exception $e) {
+            // If we can't determine the mime type, assume it's not an image
+            logger()->warning('Could not determine mime type for uploaded file: ' . $e->getMessage());
+            return false;
+        }
     }
 }
