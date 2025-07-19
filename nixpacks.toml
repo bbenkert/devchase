@@ -1,5 +1,10 @@
 [phases.setup]
-nixPkgs = ["...", "python311Packages.supervisor"]
+nixPkgs = ["...", "python311Packages.supervisor"],
+"mkdir -p storage/app/public",
+"mkdir -p storage/framework/cache",
+"mkdir -p storage/framework/sessions",
+"mkdir -p storage/framework/views",
+"mkdir -p storage/logs"
 
 [phases.build]
 cmds = [
@@ -8,10 +13,12 @@ cmds = [
     "cp /assets/supervisord.conf /etc/supervisord.conf",
     "chmod +x /assets/start.sh",
     "...",
+    "chmod -R 775 storage bootstrap/cache",
+    "chown -R www-data:www-data storage bootstrap/cache",
     "php artisan config:cache",
-  "php artisan route:cache",
-  "php artisan view:cache",
-  "php artisan storage:link"
+    "php artisan route:cache",
+    "php artisan view:cache",
+    "php artisan storage:link"
 ]
 
 [start]
