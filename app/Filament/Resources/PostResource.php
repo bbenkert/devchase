@@ -76,7 +76,7 @@ class PostResource extends Resource
                 TagsInput::make('tags'),
 
                 FileUpload::make('featured_image')
-                    ->directory('blog-image')
+                    ->directory('blogimages')
                     ->image()
                     ->imageEditor()
                     ->imageResizeMode('cover')
