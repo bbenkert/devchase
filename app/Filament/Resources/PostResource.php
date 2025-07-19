@@ -79,7 +79,13 @@ class PostResource extends Resource
                     ->imageEditor()
                     ->imageResizeMode('cover')
                     ->imageCropAspectRatio('16:9')
-                    ->preserveFilenames()
+                    ->imageResizeTargetWidth('1200')
+                    ->imageResizeTargetHeight('675')
+                    ->optimize('webp')
+                    ->imageQuality(85)
+                    ->maxSize(5120) // 5MB max
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+                    ->preserveFilenames(false)
                     ->nullable(),
 
                 Toggle::make('published')
