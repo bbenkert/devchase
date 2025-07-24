@@ -29,8 +29,25 @@
                         <p class="uppercase tracking-wider text-sm text-sky-600 font-semibold mb-1">
                             Full Stack Developer
                         </p>
+                        
+                        {{-- Social Link --}}
+                        <div class="flex justify-center md:justify-start mt-4 mb-6">
+                            <a 
+                                href="https://x.com/Benjaminbenkert" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center space-x-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 rounded-lg transition-colors duration-200"
+                            >
+                            <span class="text-sm font-medium">Follow on </span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                                
+                            </a>
+                        </div>
+                        
                         <p
-                            class="mt-6 text-slate-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto md:mx-0"
+                            class="text-slate-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto md:mx-0"
                         >
                             Hey, I’m Ben. I’m a full-time pastor, part-time developer, and full-time
                             learner. I created DevChase to document my journey into full-stack
