@@ -5,6 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{{ config('app.name', 'DevChase') }}</title>
         @vite('resources/css/app.css')
+
+<!-- Fathom analytics -->
+@if(app()->environment('production'))
+<script src="https://cdn.usefathom.com/script.js" data-site="DMUDSFWO" defer></script>
+@endif
+<!-- / Fathom -->
     </head>
     <body class="bg-gray-50 text-gray-900 leading-relaxed antialiased">
         {{-- Header --}}
