@@ -11,6 +11,11 @@
 <script src="https://cdn.usefathom.com/script.js" data-site="DMUDSFWO" defer></script>
 @endif
 <!-- / Fathom -->
+        <-- Analytics -->
+<script 
+ defer 
+ src="https://assets.onedollarstats.com/stonks.js"
+></script>
     </head>
     <body class="bg-gray-50 text-gray-900 leading-relaxed antialiased">
         {{-- Header --}}
