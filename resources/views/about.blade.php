@@ -83,8 +83,8 @@
                             dad built. I also worked on API integrations with programs like
                             QuickBooks for invoicing systems, and built a variety of unique tools
                             for real-world problems. I spent years in the WordPress world
-                            freelancing and consulting before recently discovering the Laravel
-                            ecosystem, where I finally felt at home.
+                            freelancing and consulting before recently discovering Laravel and later the Ruby on Rails
+                            community, where I finally felt at home.
                         </p>
                         <p>
                             For 9 years, I worked alongside my dad in his computer shop. I later ran
@@ -130,7 +130,9 @@
                                         'React',
                                         'Vue',
                                         'Next.js',
-                                        'T3 Stack'
+                                        'T3 Stack',
+                                        'Ruby on Rails',
+                                        'Astro'
                                     ]
                                     as $framework)
                                     <span
@@ -150,7 +152,7 @@
                                 Languages
                             </h3>
                             <div class="flex flex-wrap gap-2">
-                                @foreach (['HTML', 'CSS', 'JavaScript', 'TypeScript', 'PHP', 'Markdown', 'JSON', 'SQL'] as $language)
+                                @foreach (['HTML', 'CSS', 'JavaScript', 'TypeScript', 'PHP', 'Markdown', 'JSON', 'SQL', 'Ruby'] as $language)
                                     <span
                                         class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-amber-200 transition"
                                     >
@@ -183,7 +185,7 @@
                                         'pnpm',
                                         'Prisma',
                                         'Drizzle ORM',
-                                        'Mailgun'
+                                        'Mailgun', 'Resend'
                                     ]
                                     as $tool)
                                     <span
