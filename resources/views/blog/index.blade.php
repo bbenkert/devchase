@@ -11,21 +11,6 @@
                 <p class="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-sky-100">
                     Insights, tutorials, and reflections from my journey in code and faith.
                 </p>
-                <div class="mt-6">
-                    <a
-                        href="{{ route('blog.rss') }}"
-                        class="inline-flex items-center px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg shadow-md transition-colors"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M3.75 3a.75.75 0 00-.75.75v.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75v-.5A.75.75 0 003.75 3z"/>
-                            <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h.5a.75.75 0 01.75.75v.5a.75.75 0 01-.75.75h-.5A.75.75 0 013 7.75v-.5zM3.75 9a.75.75 0 00-.75.75v.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75v-.5A.75.75 0 003.75 9z" clip-rule="evenodd"/>
-                            <path d="M7 3.75A.75.75 0 017.75 3h9.5a.75.75 0 01.75.75v9.5a.75.75 0 01-.75.75h-9.5A.75.75 0 017 13.25v-9.5z"/>
-                        </svg>
-                        Subscribe to RSS Feed
-                    </a>
-                </div>
             </div>
         </section>
 
@@ -121,7 +106,7 @@
                             @else
                                 <a
                                     href="{{ route('blog.show', $post->slug) }}"
-                                    class="h-48 bg-slate-200 flex items-center justify-center"
+                                    class="block h-48 bg-slate-200 flex items-center justify-center"
                                 >
                                     <svg
                                         class="w-16 h-16 text-slate-400"
