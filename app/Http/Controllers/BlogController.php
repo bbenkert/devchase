@@ -48,4 +48,15 @@ class BlogController extends Controller
 
         return view('blog.index', compact('posts', 'allCategories', 'allTags'));
     }
+
+    public function rss()
+    {
+        $posts = Post::where('published', true)
+            ->orderByDesc('published_at')
+            ->limit(20)
+            ->get();
+
+        return response()->view('blog.rss', compact('posts'))
+            ->header('Content-Type', 'application/rss+xml; charset=utf-8');
+    }
 }
