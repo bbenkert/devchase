@@ -23,7 +23,10 @@ class OptimizeUploadedImage implements ShouldQueue
     /**
      * Handle the event.
      */
-    public function handle($event): void
+    /**
+     * @param object{file?: mixed} $event
+     */
+    public function handle(object $event): void
     {
         // Add more defensive checks
         if (!isset($event->file) || 
@@ -45,6 +48,8 @@ class OptimizeUploadedImage implements ShouldQueue
             return;
         }
 
+        $filePath = null;
+
         try {
             $filePath = $file->getRealPath();
             
@@ -60,7 +65,7 @@ class OptimizeUploadedImage implements ShouldQueue
             // Log the error but don't fail the upload
             logger()->warning('Image optimization failed: ' . $e->getMessage(), [
                 'file_path' => $filePath ?? 'unknown',
-                'file_name' => $file->getClientOriginalName() ?? 'unknown'
+                'file_name' => $file->getClientOriginalName()
             ]);
         }
     }

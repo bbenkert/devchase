@@ -39,7 +39,7 @@ class PostResource extends Resource
                     ->live()
                     ->afterStateUpdated(function (string $state, Set $set, Get $get): void {
                         if (! $get('slugManuallyEdited')) {
-                            $set('slug', \Str::slug($state));
+                            $set('slug', Str::slug($state));
                         }
                     }),
 
