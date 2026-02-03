@@ -23,9 +23,9 @@ $FORGE_PHP artisan migrate --force
 echo "🔗 Creating storage symlink..."
 $FORGE_PHP artisan storage:link
 
-echo "🎨 Installing NPM dependencies and building assets..."
-npm ci
-npm run build
+echo "🎨 Installing Bun dependencies and building assets..."
+bun install --frozen-lockfile
+bun run build
 
 echo "🧹 Clearing caches..."
 $FORGE_PHP artisan cache:clear

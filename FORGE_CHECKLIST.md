@@ -35,8 +35,8 @@ $FORGE_PHP artisan route:cache
 $FORGE_PHP artisan view:cache
 $FORGE_PHP artisan storage:link
 
-npm ci
-npm run build
+bun install --frozen-lockfile
+bun run build
 
 $FORGE_PHP artisan queue:restart
 ```

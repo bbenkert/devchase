@@ -74,8 +74,8 @@ $FORGE_PHP artisan route:cache
 $FORGE_PHP artisan view:cache
 $FORGE_PHP artisan storage:link
 
-npm ci
-npm run build
+bun install --frozen-lockfile
+bun run build
 
 $FORGE_PHP artisan queue:restart
 ```
@@ -139,7 +139,7 @@ Configure database backups in Forge:
 ### Common Issues:
 
 1. **500 Error**: Check logs in Forge dashboard
-2. **Asset not loading**: Run `npm run build` and ensure files are in `/public/build/`
+2. **Asset not loading**: Run `bun run build` and ensure files are in `/public/build/`
 3. **Database connection**: Verify DB credentials in environment
 4. **File permissions**: Forge handles this automatically, but ensure `storage/` is writable
 

@@ -15,6 +15,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+# Note: bun.lockb should be committed, not ignored
 /auth.json
 /.fleet
 /.idea
